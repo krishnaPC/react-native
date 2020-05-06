@@ -22,13 +22,7 @@ const Weather = ({ weather }: Props) => {
         <View style={Styles.pb}>
           <Text>
             <Text style={Styles.mr}>Weather Icons: </Text>
-            <FlatList
-              data={weather.weather_icons}
-              renderItem={
-                ({ item }) => <View><Image style={Styles.flag} source={{ uri: `${item}` }} /></View>
-              }
-              keyExtractor={item => item}
-            />
+              {weather.weather_icons.map((icon:any) => <Image key={icon} style={{width: 20, height:20}} source={{uri:icon}}/>)}
           </Text>
         </View>
         <View style={Styles.pb}>
